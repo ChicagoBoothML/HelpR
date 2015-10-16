@@ -10,7 +10,7 @@ bin_classif_eval_hard_pred <- function(hard_predictions, actuals) {
     actuals <- as.integer(actuals)
   }
   if (is.integer(actuals)) {
-    actuals <- actuals - min(actual)
+    actuals <- actuals - min(actuals)
   }
   
   opposite_hard_predictions <- ! hard_predictions
