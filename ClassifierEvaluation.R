@@ -29,7 +29,7 @@ bin_classif_eval_hard_pred <- function(hard_predictions, actuals) {
   accuracy <- (nb_true_pos + nb_true_neg) / nb_samples
   sensitivity <- nb_true_pos / nb_pos
   specificity <- nb_true_neg / nb_neg
-  precision <- nb_true_pos / nb_predicted_pos
+  precision <- nb_true_pos / nb_pred_pos
   f1_score <- (2 * precision * sensitivity) / (precision + sensitivity)
   
   c(accuracy=accuracy,
