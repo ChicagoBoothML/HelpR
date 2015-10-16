@@ -7,5 +7,11 @@ rmse <- function(y_hat, y) {
 }
 
 binaryClassDeviance <- function(p_hat, y) {
+  if (is.factor(y)) {
+    y <- as.integer(y) - 1
+  } else if (is.integer(y) || is.numeric(y)) {
+    y <- y - min(y)
+  }
+  
   - 2 * (y * log(p_hat) + (1 - y) * log(1 - p_hat))
 }
