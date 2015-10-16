@@ -8,8 +8,10 @@ rmse <- function(y_hat, y) {
 
 bin_class_dev <- function(p_hat, y) {
   if (is.factor(y)) {
-    y <- as.integer(y) - 1
-  } else if (is.integer(y) || is.numeric(y)) {
+    y <- as.integer(y)
+  }
+  
+  if (is.integer(y) || is.numeric(y)) {
     y <- y - min(y)
   }
   
