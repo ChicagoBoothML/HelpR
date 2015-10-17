@@ -15,5 +15,5 @@ bin_class_dev <- function(p_hat, y) {
     y <- y - min(y)
   }
   
-  - 2 * (y * log(p_hat) + (1 - y) * log(1 - p_hat))
+  - 2 * mean(y * log(p_hat) + (1 - y) * log(1 - p_hat))
 }
