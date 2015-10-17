@@ -91,7 +91,7 @@ bin_classif_eval <- function(predictions, actuals, thresholds=.5) {
       )
       d[, column_names := as.list(rep(0, times=6))]
       
-      for (i in seq.along(thresholds)) {
+      for (i in seq_along(thresholds)) {
         d[i, column_names := as.list(
           bin_classif_eval(predictions, actuals, thresholds=thresholds[i]))]
       }
