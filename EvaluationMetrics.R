@@ -71,7 +71,7 @@ bin_classif_eval <- function(predictions, actuals, thresholds=.5) {
     
     if (length(thresholds) == 1) {
       
-      hard_predictions <- predictions > thresholds
+      hard_predictions <- predictions >= thresholds
       
       c(bin_classif_eval_hard_pred(hard_predictions, actuals),
         c(deviance=bin_class_dev(predictions, actuals)))
