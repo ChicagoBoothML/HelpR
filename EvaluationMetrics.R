@@ -1,3 +1,26 @@
+mse <- function(y_hat, y) {
+  mean((y_hat - y) ^ 2)
+}
+
+
+rmse <- function(y_hat, y) {
+  sqrt(mse(y_hat, y))
+}
+
+
+bin_class_dev <- function(p_hat, y) {
+  if (is.factor(y)) {
+    y <- as.integer(y)
+  }
+  
+  if (is.integer(y) || is.numeric(y)) {
+    y <- y - min(y)
+  }
+  
+  - 2 * mean(y * log(p_hat) + (1 - y) * log(1 - p_hat))
+}
+
+
 bin_classif_eval_hard_pred <- function(hard_predictions, actuals) {
   if (is.factor(hard_predictions)) {
     hard_predictions <- as.integer(hard_predictions)
@@ -49,8 +72,6 @@ bin_classif_eval <- function(predictions, actuals, thresholds=.5) {
     if (length(thresholds) == 1) {
       
       hard_predictions <- predictions > thresholds
-      
-      source('https://raw.githubusercontent.com/ChicagoBoothML/HelpR/master/CostFunctions.R')
       
       c(bin_classif_eval_hard_pred(hard_predictions, actuals),
         c(deviance=bin_class_dev(predictions, actuals)))
