@@ -20,7 +20,8 @@ packageNames = c("MASS",
                  "randomForest",
                  "tree",
                  "class",
-                 "kknn"
+                 "kknn",
+                 "e1071"
                  )
 
 
