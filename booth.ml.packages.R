@@ -21,7 +21,8 @@ packageNames = c("MASS",
                  "tree",
                  "class",
                  "kknn",
-                 "e1071"
+                 "e1071",
+                 "data.table"
                  )
 
 
@@ -32,6 +33,8 @@ for (pkgName in packageNames) {
                      repos='http://cran.rstudio.com') 
   }  
 }
+
+update.packages(ask=FALSE)
 
 
 if (! ("h20" %in% rownames(installed.packages()))) { 
