@@ -22,7 +22,8 @@ packageNames = c("MASS",
                  "class",
                  "kknn",
                  "e1071",
-                 "data.table"
+                 "data.table",
+		 "recommenderlab"
                  )
 
 
