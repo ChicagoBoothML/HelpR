@@ -81,4 +81,4 @@ docv_classification = function(x,y,set,predfun,loss,nfold=10,doran=TRUE,verbose=
 docvknn_classification = function(x,y,k,nfold=10,doran=TRUE,verbose=TRUE) {
   return(docv_classification(x,y,matrix(k,ncol=1),doknn,misclassification,nfold=nfold,doran=doran,verbose=verbose))
 }
-no matches
+
