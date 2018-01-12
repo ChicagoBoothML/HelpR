@@ -76,3 +76,19 @@ docv = function(x,y,set,predfun,loss,nfold=10,doran=TRUE,verbose=TRUE,...)
 docvknn = function(x,y,k,nfold=10,doran=TRUE,verbose=TRUE) {
   return(docv(x,y,matrix(k,ncol=1),doknn,mse,nfold=nfold,doran=doran,verbose=verbose))
 }
+
+
+#--------------------------------------------------
+#cv version for polynomial regression
+docvpoly = function(x,y,d,nfold=10,doran=TRUE,verbose=TRUE) {
+  return(docv(x,y,matrix(d,ncol=1),dopoly,mse,nfold=nfold,doran=doran,verbose=verbose))
+}
+
+dopoly=function(x,y,xp,d) {
+  train = data.frame(x,y=y)
+  test = data.frame(xp); names(test) = names(train)[1:(ncol(train)-1)]
+  fit = lm(y~poly(x, degree=d[1]), train)
+  return (predict.lm(fit, test))
+}
+#--------------------------------------------------
+
