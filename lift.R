@@ -32,3 +32,17 @@ lift.many.plot = function(phat.list, y.list) {
     lines(ii,sy,type="l",lwd=2,col=i)
   }
 }
+
+lift.plot.alt = function(phat, y.list) {
+    if(is.factor(y.list)) y.list = as.numeric(y.list)-1
+    oo = order(-phat)
+    sy = cumsum(y.list[oo])/sum(y.list==1)
+    
+    ii = (1:length(sy))/length(sy)
+    plot(ii, sy/ii, 
+         type='l', lwd=2, col='blue', 
+         xlab='% tried',ylab='lift',
+         cex.lab=2
+    )
+    abline(h=1, lty=2)
+}
